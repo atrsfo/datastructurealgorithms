@@ -1,4 +1,4 @@
-package com.test.company;
+package com.company.dsa;
 
 public class StringPermutation {
 
