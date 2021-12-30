@@ -1,0 +1,38 @@
+package com.test.company;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapSpeedTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		showHashMapSpeed();
+
+	}
+
+	private static void showHashMapSpeed() {
+		// TODO Auto-generated method stub
+		Map<Integer, Integer> map = new HashMap();
+
+		System.out.println(System.currentTimeMillis());
+
+		// Add 10 million entries
+		for (int i = 0; i < 10000000; i++) {
+			map.put(i, i + 1);
+		}
+
+		System.out.println(System.currentTimeMillis()); // get time taken to add 10m records - roughly 1s
+
+		System.out.println(map.size()); // size is 10 m
+
+		System.out.println(System.currentTimeMillis());
+
+		System.out.println(map.get(500100)); // get value for key
+
+		System.out.println(System.currentTimeMillis()); // time taken to get value for key in a size of 10m records - 0
+														// milliseconds
+	}
+
+}
