@@ -1,0 +1,44 @@
+package com.company.dsa;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class PairWithResultantSum {
+
+	private static final String COMMA = String.valueOf(",");
+	private static final String NULL = null;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int[] arr = {5,9,12,43,6,19,1};
+		int sum = 15;
+		
+		findPairWithSum(arr,sum);
+		
+		
+	}
+
+	/**
+	 * find pair with resultant sum in O(n) time
+	 * @param arr
+	 * @param sum
+	 */
+	private static void findPairWithSum(int[] arr,int sum) {
+		// TODO Auto-generated method stub
+		Map<Integer,Object> tempMap = new HashMap();
+		
+		int otherNumber;
+		for(int i=0;i<arr.length;i++) {
+			otherNumber = sum - arr[i];
+			if(tempMap.containsKey(otherNumber)){
+				System.out.println(arr[i]+COMMA+otherNumber);
+				break;
+			}else {
+				tempMap.put(arr[i],NULL);    
+			}
+	
+		}
+	}
+
+}
