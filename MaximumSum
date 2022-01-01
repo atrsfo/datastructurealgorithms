@@ -1,0 +1,46 @@
+package com.company.dsa;
+
+public class MaximumSum {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int arr[] = {2,5,-1,4,6,-5,3};
+		
+		findSubsetWithMaxSum(arr);
+
+	}
+
+	private static void findSubsetWithMaxSum(int[] arr) {
+		// TODO Auto-generated method stub
+		
+		
+		int powerSetSize = (int) Math.pow(2,arr.length);
+		int sum;
+		int count;
+		int maxSum = 0;
+		int maxCount = 0;
+		for(int i=0;i<powerSetSize;i++) {
+			sum = 0;
+			count = 0;
+			for(int j=0;j<arr.length;j++) {				
+				if(((1<<j)&i)>0) {
+					sum+=arr[j];
+					count++;
+				}
+			}
+			
+			if(sum>maxSum) {
+				maxSum = sum;
+				maxCount = count;
+			}else if(sum==maxSum && count>maxCount) {
+				maxCount = count;
+			}
+			
+		}
+		
+		System.out.println(maxSum + " "+ maxCount);
+		
+	}
+
+}
