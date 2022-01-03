@@ -1,0 +1,42 @@
+package com.company.dsa;
+
+
+/**
+ * Binary Search Implementation to continually reduce the array size to half resulting in O(logn)
+ * time complexity.
+ * Works on sorted arrays only.
+ * @author Shail
+ *
+ */
+public class BinarySearch {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int[] arr = {1,4,6,8,9,12,23,34,45,56,66,74,76,88,89,90,127};
+		
+		int number = 89;
+		binarySearch(arr,0,arr.length-1,number);
+		
+	}
+
+	private static void binarySearch(int[] arr, int i, int j, int number) {
+		// TODO Auto-generated method stub
+		System.out.println("hello");
+		int low = i;
+		int high = j;
+		int middle = (i+j)/2;
+		
+		if(number==arr[middle]) {
+			System.out.println("Number is found at position "+middle);
+		}else if(low==middle) {
+			System.out.println("Number is not found");
+		}else if(number<arr[middle]) {
+			binarySearch(arr, i, middle-1, number);
+		}else {
+			binarySearch(arr, middle+1, j, number);
+		}
+		
+	}
+
+}
